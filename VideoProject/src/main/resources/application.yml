@@ -1,0 +1,24 @@
+server:
+  port: 8003
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.33.238.6:3306/shixun?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: test
+    password: 101332386
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:xml/*.xml
+
+aliyun:
+  keyid: LTAI5tLEKFP5qXcDqusMo7La
+  keysecret: 1ZbQhr0m9xc072zLRvMKJngYE9yOtY
