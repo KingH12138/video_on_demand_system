@@ -73,11 +73,11 @@ public class AliyunVodSDKUtils {
             GetPlayInfoRequest request = new GetPlayInfoRequest();
             //向request设置视频id
             request.setVideoId(videoId);
-            // 调用方法得到凭证
+            // 调用方法得到播放地址
             GetPlayInfoResponse response = defaultAcsClient.getAcsResponse(request);
             List<GetPlayInfoResponse.PlayInfo> playInfoList = response.getPlayInfoList();
             GetPlayInfoResponse.PlayInfo playInfo = playInfoList.get(0);
-            // 获取凭证
+            // 获取播放地址
             return playInfo.getPlayURL();
         } catch (ClientException e) {
             e.printStackTrace();

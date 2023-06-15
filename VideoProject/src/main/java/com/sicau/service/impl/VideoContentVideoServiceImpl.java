@@ -111,6 +111,7 @@ public class VideoContentVideoServiceImpl extends ServiceImpl<VideoContentVideoM
             request.setVideoIds(videoId);
             //删除请求后给予的响应
             DeleteVideoResponse response = client.getAcsResponse(request);
+            //删除数据库信息
             LambdaQueryWrapper<VideoContent> queryWrapper = new LambdaQueryWrapper<VideoContent>().eq(VideoContent::getVideoSourceId, videoId);
             this.remove(queryWrapper);
             log.info("删除视频资源成功:{}", response);
