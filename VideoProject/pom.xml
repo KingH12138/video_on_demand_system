@@ -130,11 +130,9 @@
             <version>${aliyun-java-sdk-vod.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.aliyun.vod</groupId>
-            <artifactId>upload</artifactId>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-sdk-vod-upload</artifactId>
             <version>${aliyun-sdk-vod-upload.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/aliyun-java-vod-upload-1.4.14.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
