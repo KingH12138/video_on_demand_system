@@ -5,8 +5,8 @@
     <el-button type="primary" @click="chuangjianzhangjie()">创建章节后上传视频</el-button>
     <!-- 添加和修改i小节表单 -->
     <!-- 操作 -->
-    <input ref="file" type="file" class="ggg">
-    <el-button type="primary" @click="uploadfile()">上传章节视频</el-button>
+    <!-- <input ref="file" type="file" class="ggg">
+    <el-button type="primary" @click="uploadfile()">上传章节视频</el-button> -->
   </div>
 
 </template>
@@ -25,8 +25,9 @@ export default {
   methods: {
     chuangjianzhangjie() {
       crzh({ courseId: sessionStorage.getItem('cI'), title: this.zhangjietitle }).then((res) => {
-        this.$message.success('创建成功请上传视频')
-        sessionStorage.setItem('chapid', res.data.chapterId)
+        // sessionStorage.setItem('chapid', res.data.chapterId)
+        alert(' 创建成功 ')
+        this.$router.push('/list')
       })
     },
     uploadfile() {

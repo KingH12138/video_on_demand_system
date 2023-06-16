@@ -35,6 +35,10 @@ export const constantRoutes =
     {
       path: '/list',
       component: () => import('@/views/service/content/list1')
+    },
+    {
+      path: '/comment',
+      component: () => import('@/views/service/content/comment.vue')
     }
   ]
 
