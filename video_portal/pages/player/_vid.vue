@@ -99,6 +99,7 @@ import axios from "axios";
 import vod from "@/api/vod";
 import content from "@/api/content";
 import "~/assets/css/video.css";
+import { checkPrimeSync } from "crypto";
 
 export default {
   layout: "video", //应用video布局
@@ -150,7 +151,6 @@ export default {
         //视频videoSourceId
         this.vid =
           this.courseContent.chapterList[2].videoContentList[1].videoSourceId;
-        console.log("vid", this.vid);
       },
       (error) => {
         console.log("error");
@@ -163,8 +163,7 @@ export default {
       )
       .then(
         (success) => {
-          console.log("play", success.data);
-          this.playAuth = success.data.playAuth;
+          this.playAuth = success.data.data.playAuth;
         },
         (error) => {
           console.log("error!");
@@ -179,40 +178,35 @@ export default {
       .then(
         (success) => {
           this.source = success.data.data.playUrl;
-          console.log("source", this.source);
+          //配置播放器
+          this.aliPlayer = new Aliplayer(
+            {
+              id: "J_prismPlayer",
+              vid: this.vid, // 视频id
+              source: this.source,
+              playauth: this.playAuth, // 播放凭证
+              encryptType: "1", // 如果播放加密视频，则需设置encryptType=1，非加密视频无需设置此项
+              width: "1500px",
+              height: "820px",
+              // 以下可选设置
+              qualitySort: "asc", // 清晰度排序
+              mediaType: "video", // 返回音频还是视频
+              autoplay: false, // 自动播放
+              isLive: false, // 直播
+              rePlay: false, // 循环播放
+              preload: true,
+              controlBarVisibility: "hover", // 控制条的显示方式：鼠标悬停
+              useH5Prism: true, // 播放器类型：html5
+            },
+            function (player) {
+              console.log("播放器创建成功");
+            }
+          );
         },
         (error) => {
           console.log("error!");
         }
       );
-    //配置播放器
-    setTimeout(() => {
-      //页面渲染之后
-      this.aliPlayer = new Aliplayer(
-        {
-          id: "J_prismPlayer",
-          vid: this.vid, // 视频id
-          source:
-            "https://outin-a87afb9e922511ec88c700163e1c8dba.oss-cn-shanghai.aliyuncs.com/sv/260ced0a-188bf77ead7/260ced0a-188bf77ead7.mp4?Expires=1686882753&OSSAccessKeyId=LTAIxSaOfEzCnBOj&Signature=ygZrpMGvZ%2FPVrz6rONb%2BNFAOXEI%3D",
-          playauth: this.playAuth, // 播放凭证
-          encryptType: "1", // 如果播放加密视频，则需设置encryptType=1，非加密视频无需设置此项
-          width: "1500px",
-          height: "820px",
-          // 以下可选设置
-          qualitySort: "asc", // 清晰度排序
-          mediaType: "video", // 返回音频还是视频
-          autoplay: false, // 自动播放
-          isLive: false, // 直播
-          rePlay: false, // 循环播放
-          preload: true,
-          controlBarVisibility: "hover", // 控制条的显示方式：鼠标悬停
-          useH5Prism: true, // 播放器类型：html5
-        },
-        function (player) {
-          console.log("播放器创建成功");
-        }
-      );
-    }, 0);
   },
 };
 </script>

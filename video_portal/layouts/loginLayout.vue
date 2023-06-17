@@ -5,8 +5,8 @@
     <header id="header">
       <section class="container">
         <h1 id="logo">
-          <a href="#" title="疯码课堂">
-            <img src="~/assets/img/logo1.png" height="100px" alt="疯码课堂" />
+          <a href="#">
+            <img src="~/assets/img/grouplogo.jpg" height="100px" />
           </a>
         </h1>
         <div class="h-ResponseResult-nsl">

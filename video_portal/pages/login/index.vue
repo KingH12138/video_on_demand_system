@@ -76,7 +76,6 @@
                 <a
                   href="javascript:"
                   type="button"
-                  @click="getCodeFun()"
                   :value="codeValue"
                   style="color: orangered"
                 >
@@ -101,7 +100,6 @@
                 type="button"
                 v-model="btn_value"
                 class="login-up-button"
-                @click="btnClick()"
               />
             </div>
             <p class="login-up-msg" v-if="!isLogin">
@@ -125,7 +123,7 @@
                 <!--                <a id="weixin" class="weixin" target="_blank" @click="wxDialog=true"-->
                 <!--                   href="http://huaan.free.idcfengye.com/api/ucenter/wx/login">-->
                 <!--                  <i class="iconfont icon-weixin"/></a>-->
-                <a id="weixin" class="weixin" href="#" @click="wxDialog = true">
+                <a id="weixin" class="weixin" href="#">
                   <i class="iconfont icon-weixin"
                 /></a>
               </li>

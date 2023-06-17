@@ -7,13 +7,8 @@
     <header id="header">
       <section class="container">
         <h1 id="logo">
-          <a href="#" title="易课堂">
-            <img
-              src="~/assets/img/logo.png"
-              width="80"
-              height="76"
-              alt="易课堂"
-            />
+          <a href="#">
+            <img src="~/assets/img/grouplogo.jpg" width="80" height="80" />
           </a>
         </h1>
         <div class="h-ResponseResult-nsl">
@@ -155,5 +150,15 @@ a:hover {
 }
 .nav a {
   text-align: center;
+}
+
+#logo {
+  overflow: hidden;
+  height: 80px;
+  width: 80px;
+}
+
+#logo img {
+  border-radius: 50%;
 }
 </style>

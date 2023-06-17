@@ -138,7 +138,7 @@ export default {
         {
           id: "1",
           imageBg: "",
-          imageUrl: require("../assets/img/pic/banner01.png"),
+          imageUrl: require("../assets/img/pic/banner_1.jpg"),
           linkUrl: "#",
         },
       ],
